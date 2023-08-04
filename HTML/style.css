@@ -1,3 +1,4 @@
+/* style.css */
 * {
     box-sizing: border-box;
 }
@@ -51,4 +52,22 @@ p {
 
 .container-fluid {
     margin-bottom: 20px;
+}
+
+h2.card-title {
+    color: #333; /* Change to your desired color (e.g., dark gray) */
+}
+
+.embed-responsive-16by9 {
+    padding-bottom: 56.25%; /* Maintain a 16:9 aspect ratio (9/16 = 0.5625 or 56.25%) */
+    position: relative;
+    max-height: 500px; /* Adjust the max-height to your desired value */
+}
+
+.embed-responsive-16by9 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

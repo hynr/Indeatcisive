@@ -14,23 +14,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createMeal(meal) {
         let ht = `
-            <div class="card" style="width: 90%">
-            <div class="card custom-card-style"> <
-            </div>
-                <div class="card-body">
-                    <div class="container-fluid" id="head">
-                        <h2 class="card-title">${meal.strMeal}</h2>
-                        <hr>
-                        <h4 class="card-subtitle mb-2 text-muted">${meal.strArea}</h4>
-                        <img src="${meal.strMealThumb}" alt="${meal.strMeal}" style="max-width: 200px;">
-                    </div>
+            <div class="card custom-card-style">
+                <div class="card-body text-center">
+                    <h2 class="card-title">${meal.strMeal}</h2>
+                    <hr>
+                    <h4 class="card-subtitle mb-2 text-muted">${meal.strArea}</h4>
+                    <img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="img-thumbnail" style="max-width: 200px;">
                     <p class="card-text">${meal.strInstructions}</p>
-                    <a href="${meal.strYoutube}" class="btn btn-dark">Youtube Tutorial</a>
                 </div>
-            </div>
+                <div class="embed-responsive embed-responsive-16by9 mt-3">
+                    <iframe class="embed-responsive-item" src="${getEmbeddedYouTubeURL(meal.strYoutube)}"></iframe>
+                </div>
             </div>
         `;
         co.innerHTML = ht;
     }
-    
+
+    function getEmbeddedYouTubeURL(youtubeURL) {
+        // Extract the video ID from the YouTube URL
+        const videoID = youtubeURL.match(/v=([^&]+)/)[1];
+        // Generate the embedded URL
+        return `https://www.youtube.com/embed/${videoID}`;
+    }
 });
